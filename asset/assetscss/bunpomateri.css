@@ -1,0 +1,55 @@
+/* Pink pastel tema seperti game tebak gambar */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #ffeef5;
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
+
+header {
+  text-align: center;
+  background: #ffb6c1;
+  padding: 1.2rem;
+  color: #fff;
+  position: sticky;
+  top: 0;
+}
+
+.home-box {
+  display: inline-block;
+  margin-top: .5rem;
+  background: #fff;
+  color: #ff4f7b;
+  padding: .4rem .8rem;
+  border-radius: .6rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background .3s;
+}
+.home-box:hover {
+  background: #ffe0ea;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.particle-box {
+  background: #ffc7d6;
+  color: #6b0033;
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  transition: transform .2s, background .3s;
+}
+.particle-box:hover {
+  background: #ffabc3;
+  transform: translateY(-4px);
+}

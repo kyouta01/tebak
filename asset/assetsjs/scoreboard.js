@@ -1,5 +1,8 @@
+// =====================
+//   SCOREBOARD LOGIC
+// =====================
 const scoreList = document.getElementById('scoreList');
-const emptyMsg = document.getElementById('emptyMsg');
+const emptyMsg  = document.getElementById('emptyMsg');
 const resetBtn  = document.getElementById('resetBtn');
 
 function tampilkanScore() {
@@ -15,14 +18,17 @@ function tampilkanScore() {
 
   board.forEach((item, index) => {
     const li = document.createElement('li');
+    li.className = item.game === 'bunpo' ? 'bunpo-item' : '';
     li.innerHTML = `<strong>${index + 1}. ${item.name}</strong><br>
+                    Game: ${item.game || 'tebak'}<br>
                     Skor: ${item.score}<br>
-                    Sisa Waktu: ${item.timeLeft ? item.timeLeft + 's' : '0s'}<br>
+                    ${item.timeLeft ? `Sisa Waktu: ${item.timeLeft}s<br>` : ''}
                     <small>${item.date}</small>`;
     scoreList.appendChild(li);
   });
 }
 
+// Hapus semua skor
 resetBtn.addEventListener('click', () => {
   if (confirm('Hapus semua skor?')) {
     localStorage.removeItem('scoreBoard');
@@ -30,10 +36,11 @@ resetBtn.addEventListener('click', () => {
   }
 });
 
-// tampilkan scoreboard saat load
-tampilkanScore();
-
-// Tombol Home kembali ke halaman utama
+// Tombol kembali ke Halaman Utama
 document.getElementById('homeBtn').addEventListener('click', () => {
-window.location.href = '/'; // ganti dengan nama file halaman utama Anda
+  // Pastikan path ke index.html sesuai struktur repositori Anda
+  window.location.href = 'index.html';
 });
+
+// Tampilkan saat halaman selesai dimuat
+tampilkanScore();

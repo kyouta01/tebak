@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Game Bunpō</title>
+  <link rel="stylesheet" href="asset/assetscss/bunpo.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Game Bunpō – Isi Bagian Kosong</h1>
+
+    <div id="startScreen">
+      <input type="text" id="playerName" placeholder="Masukkan nama">
+      <button id="startBtn">Mulai</button>
+    </div>
+
+    <div id="quizScreen" class="hidden">
+      <div class="score-box">Skor: <span id="score">0</span></div>
+      <div class="question" id="question"></div>
+      <input type="text" id="answerInput" placeholder="Ketik jawaban">
+      <button id="submitBtn">Kirim</button>
+      <p id="message"></p>
+      <button id="nextBtn" class="hidden">Soal Berikutnya ➜</button>
+    </div>
+
+    <div id="resultScreen" class="hidden">
+      <h2>Selesai!</h2>
+      <p>Skor akhir: <span id="finalScore"></span></p>
+      <button id="playAgainBtn">Main Lagi</button>
+      <a href="index.html" class="home-btn">⬅ Kembali ke Menu Utama</a>
+    </div>
+  </div>
+  <script src="asset/assetsjs/bunpo.js"></script>
+</body>
+</html>

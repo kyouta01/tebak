@@ -26,3 +26,39 @@ document.querySelectorAll('.theme-btn').forEach(button => {
     // 'default' = blue pastel, tidak menambah class
   });
 });
+
+// === Scoreboard ===
+const scoreList = document.getElementById('scoreList');
+const emptyMsg  = document.getElementById('emptyMsg');
+const resetBtn  = document.getElementById('resetBtn');
+
+function loadScores() {
+  const scores = JSON.parse(localStorage.getItem('scores')) || [];
+
+  if (scores.length === 0) {
+    emptyMsg.classList.remove('hidden');
+    return;
+  }
+
+  scores.forEach(item => {
+    const li = document.createElement('li');
+
+    // Jika game = bunpo, beri label khusus
+    if (item.game === 'bunpo') {
+      li.innerHTML = `<strong>[BUNPO]</strong> ${item.value} pts <small>${item.date}</small>`;
+    } else {
+      li.textContent = `${item.game}: ${item.value} pts (${item.date})`;
+    }
+
+    scoreList.appendChild(li);
+  });
+}
+
+resetBtn.addEventListener('click', () => {
+  localStorage.removeItem('scores');
+  scoreList.innerHTML = '';
+  emptyMsg.classList.remove('hidden');
+});
+
+loadScores();
+
