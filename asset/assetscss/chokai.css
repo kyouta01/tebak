@@ -1,0 +1,113 @@
+/* Font Google seperti tema Tebak Gambar */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+:root {
+  --bg:    #ffe6f0;   /* latar belakang pastel pink lembut */
+  --card:  #fff0f5;   /* warna box konten */
+  --border:#f9cfe0;   /* warna border */
+  --accent:#f7a8c4;   /* tombol & highlight */
+  --shadow:#f4bfd6;   /* bayangan */
+  --text:  #3a0d1c;   /* warna teks utama */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Bubblegum Sans', cursive;
+  background: var(--bg);
+  color: var(--text);
+  padding: 2rem;
+}
+
+/* Kontainer utama */
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 2px solid var(--border);
+  box-shadow: 0 8px 24px var(--shadow);
+  text-align: center;
+}
+
+/* Judul */
+.container h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin-bottom: 1.2rem;
+}
+
+/* Box skor */
+.score-box {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Input jawaban */
+#answerInput {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  background: #fff;
+}
+
+/* Tombol umum */
+button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--accent);
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px var(--shadow);
+}
+
+/* Pesan benar/salah */
+#message {
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Tombol kembali ke menu utama */
+.home-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: none;
+  background: var(--card);
+  border: 2px solid var(--border);
+  padding: 0.8rem 1.4rem;
+  border-radius: 1rem;
+  color: var(--text);
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 6px 16px var(--shadow);
+}
+
+.home-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px var(--shadow);
+  background: var(--accent);
+}
+
+/* Sembunyikan elemen */
+.hidden {
+  display: none;
+}

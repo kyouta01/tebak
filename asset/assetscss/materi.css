@@ -1,0 +1,67 @@
+:root {
+  --bg: #FCEEF1;      /* latar pastel pink lembut */
+  --card: #FAD6E7;    /* kotak menu pink pastel */
+  --accent: #F7A8C9;  /* warna tombol/aksen */
+  --text: #4B3B42;    /* teks gelap agar kontras */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: clamp(24px, 4vw, 36px);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.menu-btn,
+.home-btn {
+  padding: 16px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: var(--text);
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.menu-btn:hover,
+.home-btn:hover {
+  transform: translateY(-3px);
+  background: #F48FB1; /* sedikit lebih gelap saat hover */
+}
+
+.home-btn {
+  width: 60%;
+  max-width: 200px;
+}

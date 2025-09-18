@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tebak Gambar</title>
+  <link rel="stylesheet" href="asset/assetscss/buahplay.css">
+</head>
+<body>
+  <div class="card">
+
+    <!-- ==== INPUT NAMA ==== -->
+    <div id="nameSection" class="name-section">
+      <h2>Masukkan Nama Anda</h2>
+      <input type="text" id="playerName" placeholder="Nama pemain">
+      <button id="startGameBtn">Mulai Game</button>
+    </div>
+
+    <!-- ==== GAME ==== -->
+    <div id="gameSection" class="hidden">
+      <h1>Tebak Gambar</h1>
+
+      <div class="meta">
+        <div class="score">Skor: <span id="score">0</span></div>
+        <div class="score">Ronde: <span id="round">0</span>/<span id="total">0</span></div>
+        <!-- === TIMER BARU === -->
+        <div class="score">Waktu: <span id="timer">60</span> detik</div>
+        <!-- ================== -->
+        <div class="hint" id="hint">Tekan "Hint" jika butuh petunjuk</div>
+      </div>
+
+      <div class="image-wrap">
+        <img id="quizImage" src="" alt="Gambar tebakan">
+      </div>
+
+      <div class="choices" id="choices"></div>
+
+      <div class="bottom-controls">
+        <a id="homeBtn" href="index.html" class="home-btn">🏠 Home</a>
+        <div class="nav-btns">
+          <button id="hintBtn">Hint</button>
+          <button id="shuffleBtn">Acak</button>
+          <button id="nextBtn" class="next-right">Next ➜</button>
+        </div>
+        <div id="message" class="msg"></div>
+      </div>
+
+      <div class="progress"><i id="progressBar"></i></div>
+    </div>
+
+    <!-- ==== LEADERBOARD ==== -->
+    <div id="leaderboardSection" class="leaderboard hidden">
+      <h2>Leaderboard</h2>
+      <ul id="leaderboardList"></ul>
+      <button id="playAgainBtn">Main Lagi</button>
+    </div>
+  </div>
+
+  <script src="asset/assetsjs/buahplay.js" defer></script>
+</body>
+</html>

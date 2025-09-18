@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+:root{
+  --bg:#ffe6f0;
+  --card:#fff0f5;
+  --border:#f9cfe0;
+  --accent:#f7a8c4;
+  --shadow:#f4bfd6;
+  --text:#3a0d1c;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+  font-family:'Bubblegum Sans',cursive;
+  background:var(--bg);
+  color:var(--text);
+  padding:clamp(1rem,3vw,2rem);
+  min-height:100vh;
+}
+
+header{
+  text-align:center;
+  margin-bottom:2rem;
+}
+header h1{
+  font-size:clamp(1.6rem,4vw,2.2rem);
+  margin-bottom:1rem;
+}
+.home-box{
+  text-decoration:none;
+  background:var(--accent);
+  color:var(--text);
+  padding:0.6rem 1.2rem;
+  border-radius:0.75rem;
+  font-weight:600;
+  transition:transform .2s,background .2s;
+}
+.home-box:hover{
+  transform:translateY(-3px);
+  background:var(--border);
+}
+
+/* Daftar skor */
+#scoreList{
+  list-style:none;
+  display:grid;
+  gap:1rem;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  max-width:1000px;
+  margin:0 auto 2rem;
+}
+#scoreList li{
+  background:var(--card);
+  border:2px solid var(--border);
+  border-radius:1rem;
+  padding:1rem;
+  text-align:center;
+  font-size:1.1rem;
+  font-weight:600;
+  box-shadow:0 6px 20px var(--shadow);
+  transition:transform .2s;
+}
+#scoreList li:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 24px var(--shadow);
+}
+
+/* Pesan kosong */
+.hidden{display:none;}
+#emptyMsg{
+  text-align:center;
+  font-size:1.1rem;
+  color:#5b6c7d;
+}
+
+/* Tombol reset */
+.reset-btn{
+  display:block;
+  margin:0 auto;
+  background:var(--accent);
+  color:var(--text);
+  padding:0.6rem 1.2rem;
+  border:none;
+  border-radius:0.75rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:transform .2s,background .2s;
+}
+.reset-btn:hover{
+  transform:translateY(-3px);
+  background:var(--border);
+}

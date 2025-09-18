@@ -1,0 +1,87 @@
+/* Import font Bubble */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+:root{
+  /* --- Palet Pink Pastel --- */
+  --bg:     #FFE6EF;  /* latar pink pastel sangat lembut */
+  --card:   #FFD1E0;  /* kotak/menu pink pastel sedikit lebih pekat */
+  --accent: #F7BFD8;  /* tombol pink pastel utama */
+  --click:  #F59ABF;  /* pink pastel lebih gelap untuk efek klik */
+  --shadow: #F4B5C9;  /* bayangan pink lembut */
+  --text:   #4A3A3A;  /* teks gelap agar tetap terbaca */
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:'Bubblegum Sans', cursive;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  padding:24px;
+}
+
+.menu{
+  width:100%;
+  max-width:820px;
+  background:var(--card);
+  border-radius:20px;
+  padding:24px;
+  box-shadow:0 6px 30px var(--shadow);
+  text-align:center;
+}
+
+h1{
+  margin-bottom:20px;
+  font-size:28px;
+}
+
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  gap:20px;
+}
+
+.btn{
+  flex:1 1 20%;
+  min-width:120px;
+  padding:40px 0;
+  border-radius:16px;
+  background:var(--accent);   /* tombol pink lembut */
+  color:var(--text);
+  font-size:20px;
+  font-weight:600;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .2s;
+  user-select:none;
+}
+
+/* Hover – sedikit redup */
+.btn:hover{
+  background:var(--accent);
+  opacity:0.9;
+  transform:translateY(-4px);
+}
+
+/* Klik/active – pink lebih gelap */
+.btn:active{
+  background:var(--click);
+  color:white;
+  transform:scale(0.96);
+}
+
+footer{
+  margin-top:20px;
+  color:#7a5b5b;
+  font-size:14px;
+}

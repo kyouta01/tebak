@@ -1,0 +1,37 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Menu Utama - Tebak Gambar</title>
+  <link rel="stylesheet" href="asset/assetscss/style.css">
+  <link rel="manifest" href="manifest.json">
+
+</head>
+<body>
+  <div class="menu">
+    <h1>Menu Utama Tebak Gambar</h1>
+    <div class="buttons">
+      <a href="play.html" id="gameBtn" class="btn">Game</a>
+      <a href="materi.html" id="materiBtn" class="btn">Materi</a>
+      <a href="scoreboard.html" id="gambarBtn" class="btn">Score</a>
+      <a href="petunjuk.html" id="petunjukBtn" class="btn">Petunjuk</a>
+    </div>
+    <footer>
+      Pilih menu untuk memulai permainan atau melihat informasi lain.
+    </footer>
+  </div>
+  <script src="asset/assetsjs/scripct.js"></script>
+
+  <script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(reg => console.log('Service Worker terdaftar:', reg.scope))
+    .catch(err => console.error('SW gagal:', err));
+}
+</script>
+
+</body>
+</html>
+

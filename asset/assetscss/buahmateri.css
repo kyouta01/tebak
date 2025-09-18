@@ -1,0 +1,77 @@
+/* Font & warna pastel mirip halaman Hobi */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+:root {
+  --bg:    #ffe6f0;   /* pink pastel lembut */
+  --card:  #fff0f5;   /* box buah */
+  --border:#f9cfe0;
+  --accent:#f7a8c4;
+  --shadow:#f4bfd6;
+  --text:  #3a0d1c;
+}
+
+* { box-sizing:border-box; margin:0; padding:0; }
+
+body {
+  font-family: 'Bubblegum Sans', cursive;
+  background: var(--bg);
+  color: var(--text);
+  padding: clamp(1rem, 3vw, 2rem);
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  margin-bottom: 1rem;
+}
+/* ====== Tombol box ke halaman utama (opsional tambahan) ====== */
+.home-box {
+  display: inline-block;
+  background: var(--card);
+  border: 2px solid var(--border);
+  color: var(--text);
+  padding: 0.8rem 1.4rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  box-shadow: 0 6px 20px var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  text-decoration: none;
+  margin-top: 1.5rem;
+}
+
+.home-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px var(--shadow);
+  background: var(--accent);
+}
+
+
+ul#fruitList {
+  list-style: none;
+  display: grid;
+  gap: clamp(0.8rem, 2vw, 1.2rem);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  max-width: min(95%, 1600px);
+  margin-inline: auto;
+}
+
+ul#fruitList li {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  padding: clamp(0.9rem, 1.5vw, 1.2rem);
+  text-align: center;
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  box-shadow: 0 6px 20px var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+ul#fruitList li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px var(--shadow);
+  background: var(--accent);
+}
