@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosakata Gabungan Kanji N5</title>
+  <link rel="stylesheet" href="asset/assetscss/kanji.css">
+  <style>
+    /* Pink pastel & kartu grid */
+    body {
+      background: #ffeef5;
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+    }
+    header {
+      background: #ffbcd1;
+      padding: 1rem;
+      text-align: center;
+      color: #fff;
+      position: sticky;
+      top: 0;
+    }
+    header a {
+      color: #fff;
+      text-decoration: none;
+      background: #ff7fa3;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    main { padding: 1rem; }
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .vocab-card {
+      background: #fff;
+      border: 2px solid #ffc8da;
+      border-radius: 12px;
+      padding: 0.6rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .vocab-card:hover {
+      transform: scale(1.05);
+      background: #ffe4ed;
+    }
+    .kanji {
+      display: block;
+      font-size: 1.8rem;
+      color: #ff4f8b;
+      margin-bottom: 0.3rem;
+    }
+    .furigana {
+      display: block;
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 0.3rem;
+    }
+    .arti {
+      font-size: 0.9rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Kosakata Gabungan Kanji N5
+    <div><a href="kanji.html">⬅ Kembali ke Level</a></div>
+  </header>
+
+  <main>
+    <p>Contoh kata majemuk (熟語) hasil gabungan Kanji N5 dengan kanji lain:</p>
+    <div id="vocabGrid" class="vocab-grid"></div>
+  </main>
+
+  <script src="asset/assetsjs/kosakata-n5.js"></script>
+</body>
+</html>

@@ -4,11 +4,11 @@
 
 // ----- Bank Soal -----
 const questions = [
-  { text: "Watashi ___ genki desu.",     answer: "wa" },
-  { text: "Onamae wa nandesu ___ .",     answer: "ka" },
-  { text: "Kore ___ hon desu.",          answer: "wa" },
-  { text: "Ashita ___ gakko e ikimasu.", answer: "wa" },
-  { text: "Nihongo ___ muzukashii desu.", answer: "wa" }
+  { text: "Watashi ___ genki desu.",     answers: ["は","wa"] },
+  { text: "Onamae wa nandesu ___ .",     answers: ["か","ka"] },
+  { text: "Kore ___ hon desu.",          answers: ["は","wa"] },
+  { text: "Ashita ___ gakko e ikimasu.", answers: ["は","wa"] },
+  { text: "Nihongo ___ muzukashii desu.",answers: ["は","wa"] }
 ];
 
 // ----- Variabel Utama -----

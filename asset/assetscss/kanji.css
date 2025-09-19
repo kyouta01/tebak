@@ -1,0 +1,93 @@
+/* Gaya pastel pink seragam */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #ffe6ef;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #ffb6c1;
+  text-align: center;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+}
+
+header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.home-box {
+  display: inline-block;
+  margin-top: .5rem;
+  background: #fff;
+  color: #ff69b4;
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background .3s;
+}
+.home-box:hover {
+  background: #ffe0eb;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* Tombol Level JLPT */
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.level-btn {
+  background: #ffb6c1;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 15px;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  transition: transform .2s, background .3s;
+}
+.level-btn:hover {
+  background: #ff92af;
+  transform: scale(1.05);
+}
+
+/* Grid Kanji */
+.kanji-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(90px,1fr));
+  gap: 1rem;
+}
+.kanji-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem 0.5rem;
+  text-align: center;
+  transition: transform .2s;
+}
+.kanji-card:hover {
+  transform: translateY(-4px);
+}
+.kanji-card .k {
+  display: block;
+  font-size: 2rem;
+  color: #ff69b4;
+}
+.kanji-card small {
+  color: #555;
+}

@@ -1,0 +1,142 @@
+/* =========== Font & Warna Dasar =========== */
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+:root {
+  --bg:     #ffe6f0;   /* pink pastel lembut */
+  --card:   #fff0f6;   /* warna dasar kartu */
+  --accent: #f7a8c4;   /* warna tombol/aksen */
+  --border: #f9cfe0;   /* border lembut */
+  --shadow: #f4bfd6;   /* bayangan halus */
+  --text:   #3a0d1c;   /* teks utama */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Bubblegum Sans', cursive;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ======== Kontainer Game ======== */
+.game-container {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px var(--shadow);
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 650px;
+  text-align: center;
+}
+
+/* Judul & Info */
+header h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.2rem;
+  font-weight: bold;
+}
+
+/* ======== Board Kartu ======== */
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Setiap kartu */
+.card {
+  position: relative;
+  height: 90px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.4s;
+  border-radius: 0.8rem;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Sisi depan (tertutup) */
+.front {
+  background: var(--accent);
+  border: 2px solid var(--border);
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+/* Sisi belakang (kanji) */
+.back {
+  background: #ec407a;
+  color: #fff;
+  transform: rotateY(180deg);
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+/* ======== Hasil Permainan ======== */
+.result {
+  margin-top: 1rem;
+}
+
+.result h2 {
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ======== Tombol ======== */
+button,
+.home-btn {
+  background: var(--accent);
+  border: 2px solid var(--border);
+  color: var(--text);
+  padding: 0.6rem 1.2rem;
+  margin: 0.3rem;
+  border-radius: 0.8rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 6px 16px var(--shadow);
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover,
+.home-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--shadow);
+  background: var(--border);
+}

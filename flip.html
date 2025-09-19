@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flip Kartu Kanji</title>
+  <link rel="stylesheet" href="asset/assetscss/flip.css">
+</head>
+<body>
+  <div class="game-container">
+    <header>
+      <h1>Flip Kartu Kanji</h1>
+      <div class="info">
+        <span>Langkah: <span id="moves">0</span></span>
+        <span>Waktu: <span id="time">60</span>s</span>
+      </div>
+    </header>
+
+    <section class="board" id="board">
+      <!-- kartu akan di-generate oleh JS -->
+    </section>
+
+    <div class="result hidden" id="result">
+      <h2>🎉 Selesai!</h2>
+      <p id="finalScore"></p>
+      <button id="restartBtn">Main Lagi</button>
+      <a href="index.html" class="home-btn">🏠 Menu Utama</a>
+    </div>
+  </div>
+
+  <script src="asset/assetsjs/flip.js"></script>
+</body>
+</html>

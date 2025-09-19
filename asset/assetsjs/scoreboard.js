@@ -1,5 +1,5 @@
 // =====================
-//   SCOREBOARD LOGIC
+//     SCOREBOARD
 // =====================
 const scoreList = document.getElementById('scoreList');
 const emptyMsg  = document.getElementById('emptyMsg');
@@ -18,12 +18,17 @@ function tampilkanScore() {
 
   board.forEach((item, index) => {
     const li = document.createElement('li');
-    li.className = item.game === 'bunpo' ? 'bunpo-item' : '';
-    li.innerHTML = `<strong>${index + 1}. ${item.name}</strong><br>
-                    Game: ${item.game || 'tebak'}<br>
-                    Skor: ${item.score}<br>
-                    ${item.timeLeft ? `Sisa Waktu: ${item.timeLeft}s<br>` : ''}
-                    <small>${item.date}</small>`;
+    // Tambahkan kelas khusus per game
+    if (item.game === 'bunpo') li.classList.add('bunpo-item');
+    if (item.game === 'kanji-flip') li.classList.add('kanji-item');
+
+    li.innerHTML = `
+      <strong>${index + 1}. ${item.name}</strong><br>
+      Game: ${item.game || 'lainnya'}<br>
+      Skor: ${item.score}<br>
+      ${item.timeLeft ? `Sisa Waktu: ${item.timeLeft}s<br>` : ''}
+      <small>${item.date}</small>
+    `;
     scoreList.appendChild(li);
   });
 }
@@ -38,9 +43,7 @@ resetBtn.addEventListener('click', () => {
 
 // Tombol kembali ke Halaman Utama
 document.getElementById('homeBtn').addEventListener('click', () => {
-  // Pastikan path ke index.html sesuai struktur repositori Anda
-  window.location.href = 'index.html';
+  window.location.href = 'index.html'; // sesuaikan path
 });
 
-// Tampilkan saat halaman selesai dimuat
 tampilkanScore();
