@@ -3,28 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flip Kartu Kanji</title>
+  <title>Kanji Flip – 3 Stage</title>
   <link rel="stylesheet" href="asset/assetscss/flip.css">
 </head>
 <body>
-  <div class="game-container">
-    <header>
-      <h1>Flip Kartu Kanji</h1>
-      <div class="info">
-        <span>Langkah: <span id="moves">0</span></span>
-        <span>Waktu: <span id="time">60</span>s</span>
-      </div>
-    </header>
+  <div class="container">
+    <h1>Kanji Flip – Memory Game</h1>
 
-    <section class="board" id="board">
-      <!-- kartu akan di-generate oleh JS -->
-    </section>
+    <div class="controls">
+      <label for="stageSelect">Pilih Stage:</label>
+      <select id="stageSelect">
+        <option value="1">Stage 1 – 8 kartu</option>
+        <option value="2">Stage 2 – 16 kartu</option>
+        <option value="3">Stage 3 – 32 kartu</option>
+      </select>
+      <button id="startBtn">Mulai / Ulang</button>
+    </div>
 
-    <div class="result hidden" id="result">
-      <h2>🎉 Selesai!</h2>
+    <div class="info">
+      <span>Langkah: <strong id="moves">0</strong></span>
+      <span>Waktu: <strong id="time">0</strong>s</span>
+    </div>
+
+    <div id="board" class="board"></div>
+
+    <div id="result" class="result hidden">
       <p id="finalScore"></p>
       <button id="restartBtn">Main Lagi</button>
-      <a href="index.html" class="home-btn">🏠 Menu Utama</a>
     </div>
   </div>
 

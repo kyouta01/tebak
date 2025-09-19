@@ -40,13 +40,16 @@ function showQuestion() {
 function checkAnswer() {
   const user = answerInput.value.trim().toLowerCase();
   if (!user) return;
-  const correct = questions[current].answer.toLowerCase();
-  if (user === correct) {
+
+  // ✅ gunakan questions[current].answers (array)
+  const correctAnswers = questions[current].answers.map(a => a.toLowerCase());
+
+  if (correctAnswers.includes(user)) {
     score += 10;
     scoreEl.textContent = score;
     messageEl.textContent = "Benar! +10";
   } else {
-    messageEl.textContent = `Salah. Jawaban: ${correct}`;
+    messageEl.textContent = `Salah. Jawaban: ${correctAnswers.join(" / ")}`;
   }
   nextBtn.classList.remove("hidden");
 }
@@ -70,9 +73,8 @@ function showResult() {
   board.push({
     name: player,
     score: score,
-    game: 'bunpo',                     // Label game
+    game: 'bunpo',
     date: new Date().toLocaleString()
-    // timeLeft: bisa ditambahkan jika Anda menambahkan timer
   });
   localStorage.setItem('scoreBoard', JSON.stringify(board));
 }

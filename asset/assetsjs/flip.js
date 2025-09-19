@@ -1,30 +1,39 @@
 // ==========================
-//   KANJI FLIP – MEMORY GAME
+//  KANJI FLIP – 3 STAGE
 // ==========================
-
 const board      = document.getElementById('board');
 const movesEl    = document.getElementById('moves');
 const timeEl     = document.getElementById('time');
 const resultBox  = document.getElementById('result');
 const finalScore = document.getElementById('finalScore');
 const restartBtn = document.getElementById('restartBtn');
+const startBtn   = document.getElementById('startBtn');
+const stageSel   = document.getElementById('stageSelect');
 
 let cards   = [];
 let flipped = [];
 let moves   = 0;
 let matched = 0;
-let timeLeft = 60;
+let timeLeft = 0;
 let timer;
 let playerName = "";
 
-// === Pasangan Kanji (4 pasang = 8 kartu) ===
-const kanjiPairs = ["日","月","山","川"];
+// ====== Data Kanji ======
+// Stage 1: 4 pasang, Stage 2: 8 pasang, Stage 3: 16 pasang
+const stagePairs = {
+  1: ["日","月","山","川"],
+  2: ["日","月","山","川","田","人","口","目"],
+  3: [
+    "日","月","山","川","田","人","口","目",
+    "耳","手","足","心","力","火","水","木"
+  ]
+};
 
-// === Buat & acak kartu ===
-function generateCards() {
-  const deck = [...kanjiPairs, ...kanjiPairs].sort(() => 0.5 - Math.random());
+// ====== Buat & Acak kartu ======
+function generateCards(stage) {
+  const pairs = stagePairs[stage];
+  const deck = [...pairs, ...pairs].sort(() => 0.5 - Math.random());
   board.innerHTML = "";
-
   deck.forEach(symbol => {
     const card = document.createElement('div');
     card.classList.add('card');
@@ -36,25 +45,27 @@ function generateCards() {
     card.addEventListener('click', flipCard);
     board.appendChild(card);
   });
-
   cards = document.querySelectorAll('.card');
 }
 
-// === Mulai Game ===
+// ====== Mulai Game ======
 function startGame() {
-  // minta nama pemain sekali di awal
+  const stage = Number(stageSel.value);
+
   if (!playerName) {
     playerName = prompt("Masukkan nama pemain:", "Pemain") || "Pemain";
   }
 
-  moves = 0;
+  moves   = 0;
   matched = 0;
-  timeLeft = 60;
+  flipped = [];
+  timeLeft = stage === 1 ? 60 : stage === 2 ? 90 : 150; // waktu berbeda per stage
+
   movesEl.textContent = moves;
   timeEl.textContent  = timeLeft;
   resultBox.classList.add('hidden');
 
-  generateCards();
+  generateCards(stage);
 
   clearInterval(timer);
   timer = setInterval(() => {
@@ -64,7 +75,7 @@ function startGame() {
   }, 1000);
 }
 
-// === Balik kartu ===
+// ====== Balik kartu ======
 function flipCard() {
   if (flipped.length === 2) return;
   if (this.classList.contains('flip')) return;
@@ -89,31 +100,32 @@ function flipCard() {
   }
 }
 
-// === Selesai ===
+// ====== Selesai ======
 function endGame() {
   clearInterval(timer);
-
-  // Hitung skor: 100 - langkah*5 + sisa waktu
-  const totalScore = Math.max(0, 100 - (moves * 5) + timeLeft);
+  const totalScore = Math.max(0, 100 - (moves * 3) + timeLeft);
 
   resultBox.classList.remove('hidden');
-  finalScore.textContent = `${playerName} | Langkah: ${moves} | Sisa Waktu: ${timeLeft}s | Skor: ${totalScore}`;
+  finalScore.textContent =
+    `${playerName} | Langkah: ${moves} | Sisa Waktu: ${timeLeft}s | Skor: ${totalScore}`;
 
-  // ===== Simpan ke SCOREBOARD =====
+  // simpan ke localStorage scoreboard
   const boardData = JSON.parse(localStorage.getItem('scoreBoard')) || [];
   boardData.push({
     name: playerName,
     score: totalScore,
-    moves: moves,
-    timeLeft: timeLeft,
-    game: 'kanji-flip',
+    moves,
+    timeLeft,
+    stage: stageSel.value,
+    game: 'kanji-flip-3stage',
     date: new Date().toLocaleString()
   });
   localStorage.setItem('scoreBoard', JSON.stringify(boardData));
 }
 
-// === Event ===
+// ====== Event ======
+startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener('click', startGame);
 
-// Start pertama kali
+// Start default Stage 1
 startGame();
