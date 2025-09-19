@@ -1,5 +1,5 @@
 // ==========================
-//  KANJI FLIP – 3 STAGE
+//  KANJI FLIP – 5 STAGE
 // ==========================
 const board      = document.getElementById('board');
 const movesEl    = document.getElementById('moves');
@@ -19,13 +19,28 @@ let timer;
 let playerName = "";
 
 // ====== Data Kanji ======
-// Stage 1: 4 pasang, Stage 2: 8 pasang, Stage 3: 16 pasang
+// Stage 1: 4 pasang (8 kartu) … Stage 5: 64 pasang (128 kartu)
 const stagePairs = {
   1: ["日","月","山","川"],
   2: ["日","月","山","川","田","人","口","目"],
   3: [
     "日","月","山","川","田","人","口","目",
     "耳","手","足","心","力","火","水","木"
+  ],
+  4: [ // 32 pasang
+    "日","月","山","川","田","人","口","目",
+    "耳","手","足","心","力","火","水","木",
+    "空","雨","石","金","土","竹","花","草",
+    "虫","犬","鳥","魚","馬","風","雪","星"
+  ],
+  5: [ // 64 pasang (berbagai kanji dasar & angka)
+    "一","二","三","四","五","六","七","八","九","十",
+    "百","千","万","円","上","下","左","右","中","大",
+    "小","入","出","立","休","先","生","学","校","時",
+    "名","女","男","子","父","母","友","見","聞","言",
+    "食","飲","車","電","駅","道","海","空","山","川",
+    "花","草","木","森","雨","雪","風","火","水","土",
+    "金","土","曜","書","読","話"
   ]
 };
 
@@ -48,6 +63,18 @@ function generateCards(stage) {
   cards = document.querySelectorAll('.card');
 }
 
+// ====== Hitung waktu berdasar stage ======
+function stageTime(stage) {
+  switch(stage) {
+    case 1: return 60;     // 8  kartu
+    case 2: return 90;     // 16 kartu
+    case 3: return 150;    // 32 kartu
+    case 4: return 300;    // 64 kartu
+    case 5: return 600;    // 128 kartu
+    default: return 60;
+  }
+}
+
 // ====== Mulai Game ======
 function startGame() {
   const stage = Number(stageSel.value);
@@ -59,7 +86,7 @@ function startGame() {
   moves   = 0;
   matched = 0;
   flipped = [];
-  timeLeft = stage === 1 ? 60 : stage === 2 ? 90 : 150; // waktu berbeda per stage
+  timeLeft = stageTime(stage);
 
   movesEl.textContent = moves;
   timeEl.textContent  = timeLeft;
@@ -109,7 +136,6 @@ function endGame() {
   finalScore.textContent =
     `${playerName} | Langkah: ${moves} | Sisa Waktu: ${timeLeft}s | Skor: ${totalScore}`;
 
-  // simpan ke localStorage scoreboard
   const boardData = JSON.parse(localStorage.getItem('scoreBoard')) || [];
   boardData.push({
     name: playerName,
@@ -117,7 +143,7 @@ function endGame() {
     moves,
     timeLeft,
     stage: stageSel.value,
-    game: 'kanji-flip-3stage',
+    game: 'kanji-flip-5stage',
     date: new Date().toLocaleString()
   });
   localStorage.setItem('scoreBoard', JSON.stringify(boardData));
