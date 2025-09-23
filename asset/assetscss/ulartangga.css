@@ -1,0 +1,147 @@
+:root {
+  --pink-bg: #ffeaf2;
+  --pink-card: #ffd6e5;
+  --pink-dark: #e6a1b9;
+  --pink-accent: #ffb6c1;
+}
+
+body {
+  background: var(--pink-bg);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  color: #5a3a47;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: var(--pink-dark);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(10, 60px);
+  grid-template-rows: repeat(10, 60px);
+  gap: 2px;
+}
+
+/* Kotak papan */
+.square {
+  width: 60px;
+  height: 60px;
+  background: var(--pink-card);
+  border: 1px solid var(--pink-dark);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 12px;
+  color: #5a3a47;
+}
+.square.question {
+  background: #ffc6da;
+}
+.square.question::after {
+  content: "❓";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+/* Label dari-ke tangga/ular */
+.label {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  font-size: 11px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 4px;
+  padding: 0 2px;
+  font-weight: bold;
+}
+
+/* Gambar ular & tangga */
+.snake, .ladder {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none; /* tidak ganggu klik */
+}
+.snake { background-image: url('snake.png'); }
+.ladder { background-image: url('ladder.png'); }
+
+/* Pemain */
+.player1, .player2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  border: 2px solid #fff;
+  box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+.player1 { background: #ff8fb1; }
+.player2 { background: #a78bfa; }
+
+/* Panel Dadu */
+.dice-panel {
+  width: 170px;
+  background: var(--pink-card);
+  border: 2px solid var(--pink-dark);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+#diceBox {
+  font-size: 60px;
+  margin: 20px 0;
+}
+button {
+  background: var(--pink-dark);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background: var(--pink-accent);
+}
+
+/* Modal pertanyaan */
+.modal {
+  display: none;
+  position: fixed;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(255,182,193,0.45);
+  z-index: 10;
+}
+.modal-content {
+  background: var(--pink-card);
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 16px;
+  color: #5a3a47;
+}
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--pink-dark);
+}
+.close:hover {
+  color: var(--pink-accent);
+}
