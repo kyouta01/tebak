@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Ular Tangga Jepang</title>
+  <link rel="stylesheet" href="asset/assetscss/ulartangga.css">
+</head>
+<body>
+  <h1>🐍🪜 Game Ular Tangga 1–100</h1>
+
+  <div class="wrapper">
+    <!-- papan -->
+    <div id="board" class="board"></div>
+
+    <!-- panel dadu -->
+    <div class="dice-panel">
+      <h2>Dadu</h2>
+      <div id="diceBox">🎲</div>
+      <button id="rollBtn">Kocok Dadu</button>
+      <p>Giliran: <span id="turn">Pemain 1</span></p>
+    </div>
+  </div>
+
+  <!-- Modal pertanyaan -->
+  <div id="questionModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Pertanyaan tentang Jepang</h2>
+      <p id="questionText"></p>
+    </div>
+  </div>
+
+  <script src="asset/assetsjs/ulartangga.js"></script>
+</body>
+</html>

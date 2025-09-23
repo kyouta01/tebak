@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sudoku Kanji Jepang</title>
+  <link rel="stylesheet" href="asset/assetscss/sudoku.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Sudoku — Angka Kanji (日本語)</h1>
+
+    <section class="game">
+      <div id="board" class="board" aria-label="Papan Sudoku"></div>
+
+      <aside class="controls">
+        <div class="keypad">
+          <button class="kanji-btn" data-num="1">一</button>
+          <button class="kanji-btn" data-num="2">二</button>
+          <button class="kanji-btn" data-num="3">三</button>
+          <button class="kanji-btn" data-num="4">四</button>
+          <button class="kanji-btn" data-num="5">五</button>
+          <button class="kanji-btn" data-num="6">六</button>
+          <button class="kanji-btn" data-num="7">七</button>
+          <button class="kanji-btn" data-num="8">八</button>
+          <button class="kanji-btn" data-num="9">九</button>
+          <button id="eraseBtn" class="action">Hapus</button>
+        </div>
+
+        <div class="actions">
+          <button id="checkBtn" class="action primary">Cek Jawaban</button>
+          <button id="hintBtn" class="action">Hint</button>
+          <button id="resetBtn" class="action">Reset</button>
+        </div>
+
+        <p class="note">Pilih sebuah sel kosong, lalu tekan angka kanji untuk mengisi. Sel yang berwarna menandakan konflik.</p>
+        <p id="status" class="status"></p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="asset/assetsjs/sudoku.js"></script>
+</body>
+</html>
